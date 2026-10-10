@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>សិរីមង្គលអាពាហ៍ពិពាហ៍ · Wedding Invitation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="index.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Moul&family=Moulpali&family=Pinyon+Script&family=Kantumruy+Pro:wght@300;400;600&family=Battambang:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="locked">
+    <!-- shared SVG defs: gold gradient, wax seal, crest -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <defs>
+        <linearGradient id="gf" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#b0794f" />
+          <stop offset=".4" stop-color="#fff0d8" />
+          <stop offset=".7" stop-color="#d2a676" />
+          <stop offset="1" stop-color="#a8744a" />
+        </linearGradient>
+        <radialGradient id="wg" cx=".35" cy=".3" r=".9">
+          <stop offset="0" stop-color="#f6dcae" />
+          <stop offset=".45" stop-color="#c79a5e" />
+          <stop offset="1" stop-color="#7c5530" />
+        </radialGradient>
+        <filter id="wax" x="-15%" y="-15%" width="130%" height="130%">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency=".04"
+            numOctaves="3"
+            seed="7"
+            result="n"
+          />
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="10" result="d" />
+          <feGaussianBlur in="d" stdDeviation="1.1" result="b" />
+          <feSpecularLighting
+            in="b"
+            surfaceScale="4"
+            specularConstant=".9"
+            specularExponent="24"
+            lighting-color="#fff6e0"
+            result="s"
+          >
+            <feDistantLight azimuth="235" elevation="52" />
+          </feSpecularLighting>
+          <feComposite in="s" in2="d" operator="in" result="sc" />
+          <feComposite
+            in="d"
+            in2="sc"
+            operator="arithmetic"
+            k1="0"
+            k2="1"
+            k3="1"
+            k4="0"
+          />
+        </filter>
+        <g id="crestG">
+          <g
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linecap="round"
+          >
+            <path
+              id="pt"
+              d="M0 0C-7-12-7-24 0-34C7-24 7-12 0 0Z"
+              transform="translate(50 76)"
+            />
+            <use href="#pt" transform="rotate(24 50 76)" />
+            <use href="#pt" transform="rotate(-24 50 76)" />
+            <use href="#pt" transform="rotate(48 50 76)" />
+            <use href="#pt" transform="rotate(-48 50 76)" />
+            <use href="#pt" transform="rotate(72 50 76)" />
+            <use href="#pt" transform="rotate(-72 50 76)" />
+            <path d="M22 80H78M32 87H68" />
+          </g>
+          <circle cx="50" cy="38" r="2.2" fill="currentColor" />
+        </g>
+      </defs>
+    </svg>
+
+    <!-- opening envelope -->
+    <section id="env">
+      <div class="ebg"></div>
+      <div class="etitle">
+        <div class="m kh foil" data-ui="title"></div>
+        <div class="e">The Wedding Invitation</div>
+      </div>
+      <div
+        class="tilt"
+        id="tilt"
+        role="button"
+        tabindex="0"
+        aria-label="Open invitation"
+      >
+        <div class="estage" id="stage">
+          <div class="eenv">
+            <div class="L eback"></div>
+            <div class="ecard" id="card">
+              <svg
+                viewBox="0 0 100 100"
+                width="9%"
+                style="color: #a9793f; position: relative; z-index: 1"
+              >
+                <use href="#crestG" />
+              </svg>
+              <div class="m kh" data-ui="title"></div>
+              <div class="lw" data-logo-envelope="d"></div>
+            </div>
+            <div class="L pocket">
+              <i class="l"></i><i class="r"></i><i class="b"></i>
+            </div>
+            <div class="L fs" id="fs"></div>
+            <div class="flap" id="flap">
+              <div class="face f" id="ff">
+                <svg
+                  class="ln"
+                  viewBox="0 0 100 100"
+                  preserveAspectRatio="none"
+                >
+                  <polyline
+                    id="gl"
+                    fill="none"
+                    stroke="url(#gf)"
+                    stroke-width="1.4"
+                    vector-effect="non-scaling-stroke"
+                  />
+                </svg>
+                <!-- <div class="lw" data-logo=""></div> -->
+              </div>
+              <div class="face k" id="fk"></div>
+            </div>
+            <div class="seal" id="seal">
+              <svg viewBox="0 0 100 100">
+                <g filter="url(#wax)">
+                  <circle cx="50" cy="50" r="40" fill="url(#wg)" />
+                </g>
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="30"
+                  fill="none"
+                  stroke="#6b4725"
+                  stroke-opacity=".5"
+                  stroke-width="1.2"
+                />
+                <g
+                  style="color: #6b4725; opacity: 0.8"
+                  transform="translate(15 8) scale(.7)"
+                >
+                  <use href="#crestG" />
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ehint kh" data-ui="hint"></div>
+    </section>
+    <div id="fade"></div>
+    <div class="stage" aria-hidden="true">
+      <div class="bg" id="bg"></div>
+      <div class="tint"></div>
+    </div>
+    <div class="frame">
+      <header id="bar" hidden>
+        <a href="#cover" aria-label="Top"
+          ><div class="lw" data-logo=""></div
+        ></a>
+      </header>
+      <button
+        class="music"
+        id="music"
+        hidden
+        aria-pressed="false"
+        aria-label="Music"
+      >
+        <svg viewBox="0 0 24 24">
+          <path d="M4 9v6h4l5 4V5L8 9H4Z" />
+          <path
+            class="on"
+            d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"
+          />
+          <path class="off" d="m16 9 5 6M21 9l-5 6" />
+        </svg>
+      </button>
+    </div>
+
+    <main class="wrap">
+      <!-- cover (from Hoksong-Sievmey): first screen after the envelope; scroll down for the invitation -->
+      <section id="cover" aria-label="Cover">
+        <div class="cv-bg">
+          <div class="ph"></div>
+          <div class="sh"></div>
+        </div>
+        <div class="cv-in">
+          <svg class="crest ci" viewBox="0 0 100 100" style="color: #e6c9a0">
+            <use href="#crestG" />
+          </svg>
+          <div class="m kh foil ci" data-ui="title"></div>
+          <div class="lw ci" data-logo="" id="clogo"></div>
+          <div class="en ci" id="cvEn"></div>
+          <div class="inv kh ci" data-ui="coverInv"></div>
+          <div class="dr kh ci" id="dr"></div>
+          <div class="tm kh ci" id="cvTime"></div>
+          <div class="vn kh ci" id="cvVenue"></div>
+        </div>
+        <div class="sc kh ci" data-ui="scroll"></div>
+      </section>
+
+      <section class="s s1" id="top">
+        <h1 class="h big" data-ui="title"></h1>
+        <div class="hosts"><span id="h1"></span><span id="h2"></span></div>
+        <p class="honor" data-ui="honor"></p>
+        <p class="para" data-ui="invite"></p>
+        <div class="lw hero-logo" id="heroLogo" data-logo=""></div>
+        <div class="two">
+          <div><small data-ui="groom"></small><b id="g2"></b></div>
+          <div><small data-ui="bride"></small><b id="b2"></b></div>
+        </div>
+        <div class="bigdate" role="group" aria-label="Date">
+          <div class="bd-month" id="bdMonth"></div>
+          <div class="bd-row">
+            <div class="bd-side" id="bdDay"></div>
+            <div class="bd-num" id="bdNum"></div>
+            <div class="bd-side" id="bdTime"></div>
+          </div>
+          <div class="bd-year" id="bdYear"></div>
+        </div>
+        <p class="para" id="when"></p>
+      </section>
+
+      <section class="s countdown-wrapper" id="count">
+        <h2 class="h countdown" data-ui="until"></h2>
+        <div class="cdcard">
+          <h2 class="h" data-ui="countdown"></h2>
+          <div class="cd" id="cd"></div>
+          <p class="dt" id="cdDate"></p>
+        </div>
+      </section>
+
+      <section class="s" id="cal">
+        <h2 class="h schedule" data-ui="cal"></h2>
+        <p class="date2" id="schedDate"></p>
+        <ul class="sched" id="schedule"></ul>
+      </section>
+
+      <section class="s" id="loc">
+        <h2 class="h location" data-ui="loc"></h2>
+        <p class="h2" data-ui="loc2"></p>
+        <p class="venue" id="venue"></p>
+        <div class="mapbox">
+          <iframe
+            id="mapFrame"
+            title="Map"
+            loading="lazy"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <a
+          class="kbtn"
+          id="dir"
+          target="_blank"
+          rel="noopener"
+          data-ui="viewLoc"
+        ></a>
+      </section>
+
+      <section class="s" id="photos">
+        <h2 class="h" data-ui="photos"></h2>
+        <div class="gallery" id="gallery"></div>
+      </section>
+
+      <section class="s" id="letters">
+        <div class="letters">
+          <div class="glass">
+            <h2 class="h" data-ui="sorry"></h2>
+            <p data-ui="sorryText"></p>
+          </div>
+          <div class="glass">
+            <h2 class="h" data-ui="thanks"></h2>
+            <p data-ui="thanksText"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="s khqr" id="khqr">
+        <h2 class="kq-h" data-ui="khqrTitle"></h2>
+        <p class="kq-p" data-ui="khqrText"></p>
+        <figure class="kq-card">
+          <img id="khqrImg" alt="KHQR" />
+          <figcaption>KHQR</figcaption>
+        </figure>
+        <a
+          class="kbtn"
+          id="khqrSave"
+          download="khqr.png"
+          data-ui="khqrSave"
+        ></a>
+      </section>
+    </main>
+
+    <nav class="dock" aria-label="Invitation menu">
+      <a href="#cal" aria-label="Program">
+        <svg viewBox="0 0 24 24">
+          <rect x="3.5" y="5" width="17" height="15" rx="2.5" />
+          <path
+            d="M3.5 10h17M8 3v4M16 3v4M12 12.5l1 2 2.2.3-1.6 1.6.4 2.2-2-1-2 1 .4-2.2-1.6-1.6 2.2-.3 1-2Z"
+          />
+        </svg>
+      </a>
+      <a href="#loc" aria-label="Location"
+        ><svg viewBox="0 0 24 24">
+          <path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21Z" />
+          <circle cx="12" cy="9.5" r="2.5" />
+        </svg>
+      </a>
+      <a href="#photos" aria-label="Gallery"
+        ><svg viewBox="0 0 24 24">
+          <rect x="3.5" y="4.5" width="17" height="15" rx="2.5" />
+          <circle cx="9" cy="10" r="1.6" />
+          <path d="m4 18 5-5 4 4 3-3 4 4" />
+        </svg>
+      </a>
+      <button id="langBtn" class="lg" aria-label="Language">EN</button>
+    </nav>
+
+    <dialog class="lb" id="lb"><img alt="" /></dialog>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
