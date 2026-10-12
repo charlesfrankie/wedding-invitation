@@ -888,6 +888,66 @@ body.locked {
     opacity: 0.45;
   }
 }
+/* guest name plate printed on the envelope front */
+.eguest {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 4%;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5%;
+  pointer-events: none;
+}
+.eguest[hidden] {
+  display: none;
+}
+.eg-label {
+  font-family: "Moulpali", "Moul", "Battambang", serif;
+  font-size: clamp(9px, 2.7vw, 15px);
+  line-height: 1.6;
+  background: var(--foil);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.45));
+}
+.eg-plate {
+  position: relative;
+  width: 70%;
+  aspect-ratio: 420 / 72;
+  filter: drop-shadow(0 1px 1.5px rgba(0, 0, 0, 0.55));
+}
+.eg-plate svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.eg-name {
+  position: absolute;
+  left: 11%;
+  right: 11%;
+  top: 24%;
+  bottom: 24%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.eg-name span {
+  white-space: nowrap;
+  font-family: "Moulpali", "Moul", "Battambang", serif;
+  font-size: clamp(11px, 3.5vw, 19px);
+  line-height: 1.6;
+  background: var(--foil);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 #fade {
   position: fixed;
   inset: 0;
@@ -1178,6 +1238,39 @@ html[lang="en"] .sched p {
   line-height: 2;
   color: #66543f;
   margin-bottom: 2rem;
+}
+.khqr {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.kq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+  max-width: 460px;
+  align-items: start;
+}
+.kq-grid:has(> :only-child) {
+  grid-template-columns: minmax(0, 230px);
+  justify-content: center;
+}
+.kq-grid .kq-card {
+  width: auto;
+  padding: 0.6rem 0.6rem 0.3rem;
+}
+.kq-grid .kq-card img {
+  cursor: zoom-in;
+}
+.kq-save {
+  display: inline-block;
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  line-height: 1.8;
+  color: #8a5a3d;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
 }
 .kq-card {
   width: min(72%, 230px);

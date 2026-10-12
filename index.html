@@ -7,6 +7,17 @@
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
     <title>សិរីមង្គលអាពាហ៍ពិពាហ៍ · Wedding Invitation</title>
+
+    <!-- favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="favicon/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="stylesheet" href="index.css" />
     <link
@@ -117,6 +128,28 @@
               <i class="l"></i><i class="r"></i><i class="b"></i>
             </div>
             <div class="L fs" id="fs"></div>
+            <!-- guest name plate printed on the envelope; name comes from the link ?to=Name -->
+            <div class="eguest" id="eguest" hidden>
+              <div class="eg-label" data-ui="guestLabel"></div>
+              <div class="eg-plate">
+                <svg viewBox="0 0 420 72" fill="none" stroke="url(#gf)" stroke-linecap="round" aria-hidden="true">
+                  <defs>
+                    <path id="ep" d="M0 0C-4.5-7-4.5-14 0-20C4.5-14 4.5-7 0 0Z" fill="url(#gf)" stroke="none"/>
+                  </defs>
+                  <rect x="27" y="10" width="366" height="52" rx="7" stroke-width="1.8"/>
+                  <rect x="32" y="15" width="356" height="42" rx="4" stroke-width=".9"/>
+                  <g transform="translate(25 36) rotate(-90)">
+                    <use href="#ep" transform="rotate(-58)"/><use href="#ep" transform="rotate(-29)"/><use href="#ep"/><use href="#ep" transform="rotate(29)"/><use href="#ep" transform="rotate(58)"/>
+                  </g>
+                  <g transform="translate(395 36) rotate(90)">
+                    <use href="#ep" transform="rotate(-58)"/><use href="#ep" transform="rotate(-29)"/><use href="#ep"/><use href="#ep" transform="rotate(29)"/><use href="#ep" transform="rotate(58)"/>
+                  </g>
+                  <path d="M186 10C192 3 200 3 206 10M214 10C220 3 228 3 234 10M186 62C192 69 200 69 206 62M214 62C220 69 228 69 234 62" stroke-width="1.4"/>
+                  <circle cx="210" cy="4" r="2.2" fill="url(#gf)" stroke="none"/><circle cx="210" cy="68" r="2.2" fill="url(#gf)" stroke="none"/>
+                </svg>
+                <div class="eg-name" id="guestWrap"><span id="guestName" class="kh"></span></div>
+              </div>
+            </div>
             <div class="flap" id="flap">
               <div class="face f" id="ff">
                 <svg
@@ -293,16 +326,7 @@
       <section class="s khqr" id="khqr">
         <h2 class="kq-h" data-ui="khqrTitle"></h2>
         <p class="kq-p" data-ui="khqrText"></p>
-        <figure class="kq-card">
-          <img id="khqrImg" alt="KHQR" />
-          <figcaption>KHQR</figcaption>
-        </figure>
-        <a
-          class="kbtn"
-          id="khqrSave"
-          download="khqr.png"
-          data-ui="khqrSave"
-        ></a>
+        <div class="kq-grid" id="khqrGrid"></div>
       </section>
     </main>
 

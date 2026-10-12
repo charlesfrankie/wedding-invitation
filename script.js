@@ -1,11 +1,11 @@
 /* ================= EDIT THIS BLOCK ================= */
 const CONFIG = {
   names: {
-    km: ["ហុកសុង", "សុីវមុី"],
+    km: ["ហុកសុង", "ស៊ីវម៉ី"],
     en: ["Hoksong", "Sievmey"],
   }, // [groom, bride]
   fullNames: {
-    km: ["ទឹម​ ហុកសុង", "លី សុីវមុី"],
+    km: ["ទឹម​ ហុកសុង", "លី ស៊ីវម៉ី"],
     en: ["Tim Hoksong", "Ly Sivmey"],
   }, // [groom, bride],
   groomParents: {
@@ -13,7 +13,7 @@ const CONFIG = {
     en: ["Mr. Tim Sokheng", "Mrs. Seng Sokhuor"],
   },
   brideParents: {
-    km: ["លោក លី ប៊ុនធី", "លោកស្រី ជួង គីមមួយ"],
+    km: ["លោក លី ប៊ុនធី", "លោកស្រី ជួង គីមបួយ"],
     en: ["Mr. ...", "Mrs. ..."],
   },
   dateISO: "2026-12-18T17:00:00", // first event of the day (used by the countdown)
@@ -36,7 +36,10 @@ const CONFIG = {
       "./photo-5.jpeg",
       "./photo-6.jpeg",
     ], // 1st is wide, 2nd-3rd medium, 4th-6th small; add more if you like
-    khqr: "./tim-hoksong-ly-sievmey-khqr.jpg", //
+    khqr: [
+      "./tim-hoksong-ly-sievmey-khqr.jpg",
+      "./tim-hoksong-ly-sievmey-khqr-2.jpg",
+    ], // one path or a list; 2 per row
   },
   music: "", // e.g. "music/song.mp3". Leave "" to hide the speaker button
 
@@ -123,9 +126,10 @@ const UI = {
   ],
   khqrSave: ["រក្សាទុក QR", "Save QR"],
   hint: ["ប៉ះត្រា ដើម្បីបើកសំបុត្រ", "Tap the seal to open"],
+  guestLabel: ["សូមគោរពអញ្ជើញ", "Cordially invited"],
   honor: ["យើងខ្ញុំមានកិត្តិយសសូមគោរពអញ្ជើញ", "We have the honor to invite"],
   invite: [
-    "ឯកឧត្តម លោកជំទាវ លោកអ្ឧកញ៉ា លោក លោកស្រី អ្នកនាងកញ្ញា និងប្រិយមិត្តទាំងអស់ សូមអញ្ជើញចូលរួមជាអធិបតី និង ជាភ្ញៀវកិត្តិយស ដើម្បីប្រសិទ្ធពរជ័យ សិរីសួស្តី ជ័យមង្គល ក្នុងពិធីរៀបអាពាហ៍ពិពាហ៍ កូនប្រុស-កូនស្រីរបស់យើងខ្ញុំ",
+    "ឯកឧត្តម លោកជំទាវ លោកអ្នកឧកញ៉ា លោក លោកស្រី អ្នកនាងកញ្ញា និងប្រិយមិត្តទាំងអស់ សូមអញ្ជើញចូលរួមជាអធិបតី និង ជាភ្ញៀវកិត្តិយស ដើម្បីប្រសិទ្ធពរជ័យ សិរីសួស្តី ជ័យមង្គល ក្នុងពិធីរៀបអាពាហ៍ពិពាហ៍ កូនប្រុស-កូនស្រីរបស់យើងខ្ញុំ",
     "our distinguished guests, family and friends to join us as guests of honor and bless the wedding of our son and daughter",
   ],
   groom: ["កូនប្រុសនាម", "Groom"],
@@ -150,18 +154,40 @@ const UI = {
   today: ["ថ្ងៃនេះគឺជាថ្ងៃមង្គល!", "Today is the day!"],
   sorry: ["លិខិតសូមអភ័យទោស", "A note of apology"],
   sorryText: [
-    "យើងខ្ញុំជាមាតាបិតា កូនប្រុស កូនស្រី សូមអភ័យទោសដោយពុំបានជូនសំបុត្រអញ្ជើញដោយផ្ទាល់ ។  សូមឯកឧត្តម លោកជំទាវ លោកអ្ឧកញ៉ា លោក លោកស្រី អ្នកនាងកញ្ញា និងប្រិយមិត្តទាំងអស់ សូមអញ្ជើញចូលរួមជាអធិបតី និង ជាភ្ញៀវកិត្តិយសក្នុង​ កម្មវិធី របស់យើងខ្ញុំដោយមេត្រីភាព។",
+    "យើងខ្ញុំជាមាតាបិតា កូនប្រុស កូនស្រី សូមអភ័យទោសដោយពុំបានជូនសំបុត្រអញ្ជើញដោយផ្ទាល់ ។  សូមឯកឧត្តម លោកជំទាវ លោកអ្នកឧកញ៉ា លោក លោកស្រី អ្នកនាងកញ្ញា និងប្រិយមិត្តទាំងអស់ សូមអញ្ជើញចូលរួមជាអធិបតី និង ជាភ្ញៀវកិត្តិយសក្នុង​ កម្មវិធី របស់យើងខ្ញុំដោយមេត្រីភាព។",
     "We, the parents, sincerely apologize if we could not invite you in person, or if your name was misspelled or left off the invitation. Your presence is a great honor to our family.",
   ],
   thanks: ["លិខិតថ្លែងអំណរគុណ", "A note of thanks"],
   thanksText: [
-    "យើងខ្ញុំជាមាតាបិតា កូនប្រុស កូនស្រី សូមថ្លែងអំណរគុណយ៉ាងជ្រាលជ្រៅចំពោះការអញ្ជើញចូលរួមជាភ្ញៀវកិត្តិយសក្នុងពិធីអាពាហ៍ពិពាហ៍របស់យើងខ្ញុំ។ សូមជូនពរដល់ ឯកឧត្តម លោកជំទាវ លោកអ្ឧកញ៉ា លោក លោកស្រី អ្នកនាងកញ្ញា និងប្រិយមិត្តទាំងអស់ សូមប្រកបតែភាពសុខដុមចម្រុងចម្រើន និងសុភមង្គលក្នុងក្រុមគ្រូសារជានិច្ចនិរន្តរ៏។ សូមអរគុណ!",
+    "យើងខ្ញុំជាមាតាបិតា កូនប្រុស កូនស្រី សូមថ្លែងអំណរគុណយ៉ាងជ្រាលជ្រៅចំពោះការអញ្ជើញចូលរួមជាភ្ញៀវកិត្តិយសក្នុងពិធីអាពាហ៍ពិពាហ៍របស់យើងខ្ញុំ។ សូមជូនពរដល់ ឯកឧត្តម លោកជំទាវ លោកអ្នកឧកញ៉ា លោក លោកស្រី អ្នកនាងកញ្ញា និងប្រិយមិត្តទាំងអស់ សូមប្រកបតែភាពសុខដុមចម្រុងចម្រើន និងសុភមង្គលក្នុងក្រុមគ្រូសារជានិច្ចនិរន្តរ៏។ សូមអរគុណ!",
     "We, the parents, deeply thank you for joining our children's wedding as guests of honor. May you and your family enjoy peace, good health and success in all you do. Thank you!",
   ],
 };
 /* =================================================== */
 
 const $ = (id) => document.getElementById(id);
+
+/* shrink the guest name until it fits inside its plate */
+function fitGuest() {
+  const el = $("guestName"),
+    box = $("guestWrap");
+  if (!el || !box) return;
+  el.style.fontSize = "";
+  let s = parseFloat(getComputedStyle(el).fontSize);
+  while (el.offsetWidth > box.clientWidth && s > 8)
+    el.style.fontSize = --s + "px";
+}
+addEventListener("resize", fitGuest);
+if (document.fonts) document.fonts.ready.then(fitGuest);
+
+/* Guest name from the link, e.g.  https://yoursite.com/?to=សុខា   (also accepts ?guest= or ?name=) */
+const GUEST = (() => {
+  const p = new URLSearchParams(location.search);
+  return (p.get("to") || p.get("guest") || p.get("name") || "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, 60);
+})();
 const date = new Date(CONFIG.dateISO);
 let L = 0; // 0 = Khmer, 1 = English
 const kn = (n) => String(n).replace(/\d/g, (d) => "០១២៣៤៥៦៧៨៩"[d]); // Note: keep standard digit map if needed
@@ -260,8 +286,27 @@ const qrPh =
   encodeURIComponent(
     `<svg xmlns='http://www.w3.org/2000/svg' width='300' height='400'><rect width='100%' height='100%' fill='#f4f4f2'/><g fill='none' stroke='#8f847c' stroke-width='6'><rect x='60' y='90' width='60' height='60'/><rect x='180' y='90' width='60' height='60'/><rect x='60' y='210' width='60' height='60'/></g><g fill='#8f847c'><rect x='76' y='106' width='28' height='28'/><rect x='196' y='106' width='28' height='28'/><rect x='76' y='226' width='28' height='28'/><rect x='150' y='170' width='24' height='24'/><rect x='190' y='210' width='24' height='24'/><rect x='216' y='246' width='24' height='24'/><rect x='150' y='250' width='24' height='24'/></g><text x='150' y='345' font-family='Georgia,serif' font-size='20' text-anchor='middle' fill='#8f847c'>add khqr.png</text></svg>`,
   );
-setImg($("khqrImg"), CONFIG.photos.khqr, qrPh);
-$("khqrSave").href = CONFIG.photos.khqr || qrPh;
+// one or more QR cards, shown 2 per row (CONFIG.photos.khqr can be a single path or a list)
+const qrList = [].concat(CONFIG.photos.khqr || [""]);
+$("khqrGrid").innerHTML = qrList
+  .map(
+    () =>
+      `<figure class="kq-card"><img alt="KHQR" /><figcaption>KHQR</figcaption><a class="kq-save" data-ui="khqrSave"></a></figure>`,
+  )
+  .join("");
+$("khqrGrid")
+  .querySelectorAll(".kq-card")
+  .forEach((card, i) => {
+    const img = card.querySelector("img"),
+      a = card.querySelector(".kq-save");
+    setImg(img, qrList[i], qrPh);
+    a.href = qrList[i] || qrPh;
+    a.setAttribute("download", `khqr-${i + 1}.png`);
+    img.onclick = () => {
+      $("lb").querySelector("img").src = img.src; // tap a QR to enlarge it
+      $("lb").showModal();
+    };
+  });
 
 /* Gallery */
 const gal = $("gallery");
@@ -328,6 +373,13 @@ function render() {
   document
     .querySelectorAll("[data-ui]")
     .forEach((e) => (e.textContent = UI[e.dataset.ui][L]));
+
+  // the guest plate only shows when the link has a name (?to=Name)
+  $("eguest").hidden = !GUEST;
+  if (GUEST) {
+    $("guestName").textContent = GUEST;
+    fitGuest();
+  }
 
   const fn = CONFIG.fullNames[L ? "en" : "km"];
 
@@ -779,7 +831,7 @@ function openEnvelope() {
     return;
   } // safety net if GSAP didn't load
   if (idle) idle.kill();
-  const parts = [".eback", ".pocket", "#fs", "#flap"],
+  const parts = [".eback", ".pocket", "#fs", "#flap", ".eguest"],
     flap = qs("#flap"),
     seal = qs("#seal"),
     card = qs("#card");
