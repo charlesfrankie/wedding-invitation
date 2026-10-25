@@ -29,16 +29,16 @@ const CONFIG = {
   photos: {
     background: "", // full-screen photo behind everything (gets the golden sepia tint automatically)
     gallery: [
-      "./photo-1.jpeg",
-      "./photo-2.jpeg",
-      "./photo-3.jpeg",
-      "./photo-4.jpeg",
-      "./photo-5.jpeg",
-      "./photo-6.jpeg",
+      "/images/photo-1.jpeg",
+      "/images/photo-2.jpeg",
+      "/images/photo-3.jpeg",
+      "/images/photo-4.jpeg",
+      "/images/photo-5.jpeg",
+      "/images/photo-6.jpeg",
     ], // 1st is wide, 2nd-3rd medium, 4th-6th small; add more if you like
     khqr: [
-      "./tim-hoksong-ly-sievmey-khqr.jpg",
-      "./tim-hoksong-ly-sievmey-khqr-2.jpg",
+      "/images/tim-hoksong-ly-sievmey-khqr.jpg",
+      "/images/tim-hoksong-ly-sievmey-khqr-2.jpg",
     ], // one path or a list; 2 per row
   },
   music: "", // e.g. "music/song.mp3". Leave "" to hide the speaker button
@@ -181,13 +181,13 @@ addEventListener("resize", fitGuest);
 if (document.fonts) document.fonts.ready.then(fitGuest);
 
 /* Guest name from the link, e.g.  https://yoursite.com/?to=សុខា   (also accepts ?guest= or ?name=) */
-const GUEST = (() => {
-  const p = new URLSearchParams(location.search);
-  return (p.get("to") || p.get("guest") || p.get("name") || "")
-    .replace(/\s+/g, " ")
-    .trim()
-    .slice(0, 60);
-})();
+// const GUEST = (() => {
+//   const match = location.pathname.match(/^\/guest\/([^/]+)\/?$/);
+//   return match ? decodeURIComponent(match[1]) : "";
+// })();
+
+const GUEST = window.GUEST || "";
+
 const date = new Date(CONFIG.dateISO);
 let L = 0; // 0 = Khmer, 1 = English
 const kn = (n) => String(n).replace(/\d/g, (d) => "០១២៣៤៥៦៧៨៩"[d]); // Note: keep standard digit map if needed
@@ -477,14 +477,14 @@ const hasGsap = typeof gsap !== "undefined";
 
 const logoHTML = (d) =>
   // `<div class="nlogo ${d ? "dark" : ""}"><span class="nm n1"><b class="foil kh">${CONFIG.names.km[0]}</b></span><svg class="fl" viewBox="0 0 200 60"><path class="fp" pathLength="1" d="M14 4C60 6 70 54 100 32S150 6 192 46"/><path class="ht" d="M100 40C90 33 93 26 100 30C107 26 110 33 100 40Z"/><g transform="translate(170 12)"><g class="bf"><ellipse cx="-5" cy="-3" rx="6" ry="3.5" transform="rotate(-30 -5 -3)"/><ellipse cx="5" cy="-3" rx="6" ry="3.5" transform="rotate(30 5 -3)"/><ellipse cx="-4" cy="4" rx="4" ry="2.6" transform="rotate(25 -4 4)"/><ellipse cx="4" cy="4" rx="4" ry="2.6" transform="rotate(-25 4 4)"/></g></g></svg><span class="nm n2"><b class="foil kh">${CONFIG.names.km[1]}</b></span></div>`;
-  `<div class="nlogo ${d ? "dark" : ""}"><img src="./logo-name-trns.png" /></div>`;
+  `<div class="nlogo ${d ? "dark" : ""}"><img src="/images/logo-name-trns.png" /></div>`;
 
 qsa("[data-logo]").forEach(
   (e) => (e.innerHTML = logoHTML(e.dataset.logo === "d")),
 );
 
 const envelopeLogoHTML = (d) =>
-  `<div class="nlogo ${d ? "dark" : ""}"><img src="./logo-name.png" /></div>`;
+  `<div class="nlogo ${d ? "dark" : ""}"><img src="/images/logo-name.png" /></div>`;
 qsa("[data-logo-envelope]").forEach(
   (e) => (e.innerHTML = envelopeLogoHTML(e.dataset.logo === "d")),
 );

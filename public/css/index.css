@@ -112,7 +112,7 @@ html[lang="en"] .h {
   inset: 0;
   width: 100%;
   height: 100%;
-  background-image: url("photo-4.jpeg");
+  background-image: url("/images/photo-4.jpeg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -173,7 +173,7 @@ html[lang="en"] .h {
 }
 .s {
   min-height: 70svh;
-  padding: 6.5rem 1.9rem 3.25rem;
+  padding: 4.5rem 1.2rem 2.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -183,7 +183,7 @@ html[lang="en"] .h {
 .h {
   font-family: var(--moul);
   font-weight: 400;
-  font-size: clamp(1.5rem, 7.4vw, 2.2rem);
+  font-size: clamp(1.2rem, 7.4vw, 1.2rem);
   line-height: 1.55;
   background: var(--gold);
   -webkit-background-clip: text;
@@ -191,10 +191,10 @@ html[lang="en"] .h {
   color: transparent;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35));
   padding-top: 0.8rem;
-  margin: 1.6rem 0;
+  margin: 1.2rem 0;
 }
 .h.big {
-  font-size: clamp(1.9rem, 9.5vw, 2.8rem);
+  font-size: clamp(1.4rem, 9.5vw, 1.4rem);
 }
 .hosts {
   display: grid;
@@ -203,24 +203,24 @@ html[lang="en"] .h {
   width: 100%;
   max-width: 380px;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.8rem;
   line-height: 1.8;
-  margin: 2rem 0;
+  margin: 1.5rem 0;
 }
 .honor {
   font-family: var(--moul);
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: #f3d88a;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
 }
 html[lang="en"] .honor {
   font-family: var(--en);
   font-weight: 700;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 .para {
   max-width: 30em;
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   line-height: 2.1;
   color: var(--text);
 }
@@ -235,28 +235,33 @@ html[lang="en"] .honor {
 .two small {
   display: block;
   color: #f3d88a;
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 .two b {
   font-family: var(--moul);
   font-weight: 400;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #fff3c9;
 }
 html[lang="en"] .two b {
   font-family: var(--en);
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.4rem;
 }
 
 .glass {
   width: 100%;
+  min-height: 400px;
   background: var(--glass);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(235, 203, 130, 0.25);
   border-radius: 22px;
   padding: 2.2rem 1.6rem;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* big date */
@@ -268,7 +273,7 @@ html[lang="en"] .two b {
 }
 .bd-month {
   font-family: var(--moul);
-  font-size: 1.25rem;
+  font-size: 1rem;
   color: #f3d88a;
 }
 .bd-row {
@@ -282,13 +287,13 @@ html[lang="en"] .two b {
   border-bottom: 1.5px solid var(--g2);
   padding: 0.4rem 0.2rem;
   font-family: var(--moul);
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   line-height: 1.7;
   color: #fff3c9;
 }
 .bd-num {
   font-family: var(--moul);
-  font-size: clamp(3.8rem, 19vw, 3.6rem);
+  font-size: clamp(2.8rem, 19vw, 2.6rem);
   padding: 0.6rem 0;
   line-height: 1.15;
   background: var(--gold);
@@ -300,7 +305,7 @@ html[lang="en"] .two b {
 .bd-year {
   margin-top: -0.5rem;
   font-family: var(--moul);
-  font-size: clamp(1.8rem, 9vw, 1.5rem);
+  font-size: clamp(1.2rem, 9vw, 1.2rem);
   letter-spacing: 0.14em;
   background: var(--gold);
   -webkit-background-clip: text;
@@ -328,7 +333,7 @@ html[lang="en"] .bd-side {
 }
 .date2 {
   font-family: var(--moul);
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #f3d88a;
   max-width: 22em;
   margin: 1rem 0 2.6rem 0;
@@ -344,13 +349,13 @@ html[lang="en"] .date2 {
   margin-bottom: 0rem;
 }
 .h2 {
-  margin-bottom: 1.6rem;
+  margin: 0.5rem 0 1.2rem;
   font-family: var(--moul);
-  font-size: 1.1rem;
+  font-size: 0.8em;
 }
 .venue {
   margin-bottom: 0.6rem;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
 }
 .mapbox {
   width: 100%;
@@ -489,7 +494,7 @@ html[lang="en"] .cdcard .dt {
 /* letters */
 .letters {
   display: grid;
-  gap: 2.4rem;
+  gap: 6rem;
   width: 100%;
 }
 .glass .h {
@@ -499,8 +504,15 @@ html[lang="en"] .cdcard .dt {
   border-bottom: 1px solid rgba(255, 243, 201, 0.55);
 }
 .glass p {
-  font-size: 1rem;
+  font-size: 0.8rem;
   line-height: 2.1;
+  line-height: 2.1;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0;
 }
 
 /* dock */
@@ -690,7 +702,7 @@ body.locked {
 .ebg {
   position: absolute;
   inset: 0;
-  background: #000 url("cover.webp") center 38% / cover;
+  background: #000 url("/images/cover.webp") center 38% / cover;
   filter: blur(18px) brightness(0.38) saturate(0.9);
   transform: scale(1.12);
 }
@@ -979,7 +991,7 @@ body.locked {
 #cover .ph {
   position: absolute;
   inset: 0;
-  background: #000 url("cover.webp") 50% 36% / cover;
+  background: #000 url("/images/cover.webp") 50% 36% / cover;
 }
 #cover .sh {
   position: absolute;
@@ -1009,7 +1021,7 @@ body.locked {
 }
 #cover .m {
   font-family: var(--moul);
-  font-size: clamp(11px, 3.4vw, 19px);
+  font-size: clamp(12px, 3.4vw, 24px);
 }
 #cover .lw {
   width: clamp(180px, min(60vw, 34svh), 300px);
@@ -1043,7 +1055,7 @@ body.locked {
   z-index: 0;
 }
 #cover .inv {
-  font-size: clamp(12px, 3.2vw, 16px);
+  font-size: clamp(12px, 3.2vw, 20px);
   color: #e6c9a0;
 }
 #cover .dr {
@@ -1060,7 +1072,7 @@ body.locked {
 }
 #cover .dr small {
   display: block;
-  font-size: clamp(9px, 2.6vw, 12px);
+  font-size: clamp(12px, 2.6vw, 16px);
   color: #e6c9a0;
   line-height: 1.7;
 }
@@ -1073,11 +1085,11 @@ body.locked {
   color: #fff3c9;
 }
 #cover .tm {
-  font-size: clamp(12px, 3.4vw, 16px);
+  font-size: clamp(12px, 3.4vw, 18px);
   color: #fff3c9;
 }
 #cover .vn {
-  font-size: clamp(12px, 3.4vw, 16px);
+  font-size: clamp(12px, 3.4vw, 18px);
   color: #e6c9a0;
 }
 #cover .sc {
@@ -1086,7 +1098,7 @@ body.locked {
   left: 0;
   right: 0;
   text-align: center;
-  font-size: 11px;
+  font-size: 12px;
   color: #e6c9a0;
   line-height: 1.5;
 }
@@ -1189,7 +1201,7 @@ html[lang="en"] #cover .dr b {
   white-space: nowrap;
 }
 .sched p {
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   line-height: 1.75;
   color: #ede6dc;
 }
@@ -1227,14 +1239,14 @@ html[lang="en"] .sched p {
 .kq-h {
   font-family: var(--km);
   font-weight: 700;
-  font-size: clamp(1.7rem, 8vw, 2.2rem);
+  font-size: clamp(1.2rem, 8vw, 2.2rem);
   line-height: 1.6;
   color: #76533d;
   margin: 0.4rem 0 1rem;
 }
 .kq-p {
   max-width: 22em;
-  font-size: 1rem;
+  font-size: 0.8rem;
   line-height: 2;
   color: #66543f;
   margin-bottom: 2rem;
@@ -1244,10 +1256,11 @@ html[lang="en"] .sched p {
   padding-right: 1rem;
 }
 .kq-grid {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
-  width: 100%;
+  width: 80%;
   max-width: 460px;
   align-items: start;
 }
@@ -1359,7 +1372,7 @@ html[lang="en"] .kq-p {
   min-width: 14rem;
   margin-top: 2.4rem;
   padding: 0.85rem 3.6rem;
-  font: 700 1rem/1.6 var(--km);
+  font: 700 0.8rem/1.6 var(--km);
   letter-spacing: 0.02em;
   color: #f6e0a0;
   text-decoration: none;
@@ -1437,4 +1450,395 @@ html[lang="en"] .kbtn {
   font-family: var(--en);
   font-size: 1.2rem;
   letter-spacing: 0.06em;
+}
+
+/* =====================================================================
+   RESPONSIVE LAYER: phone → tablet → desktop
+   Paste at the VERY END of your existing stylesheet (it overrides it).
+   Also make sure <head> has:
+   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+   ===================================================================== */
+
+:root {
+  --col: 100%;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+img,
+svg,
+iframe {
+  max-width: 100%;
+}
+
+.stage,
+.frame {
+  width: var(--col);
+  height: 100vh;
+  height: 100dvh;
+}
+.wrap {
+  max-width: var(--col);
+  width: 100%;
+}
+
+.bg {
+  background-attachment: scroll;
+}
+
+.s {
+  min-height: 70vh;
+  min-height: 70dvh;
+}
+#cover {
+  height: 100vh;
+  height: 100dvh;
+}
+#env {
+  height: 100vh;
+  height: 100dvh;
+}
+
+.dock {
+  max-width: calc(var(--col) - 24px);
+  max-width: min(calc(100vw - 24px), 440px);
+}
+
+/* @media (max-width: 359px) {
+  body {
+    font-size: 14px;
+  }
+  .hosts {
+    gap: 0.8rem 1rem;
+  }
+  .cd {
+    gap: 0.4rem;
+  }
+  .cd b {
+    font-size: 1.55rem;
+  }
+  .cd span {
+    font-size: 0.72rem;
+  }
+  .dock {
+    gap: 0.4rem;
+    padding: 0.5rem;
+  }
+  .dock a,
+  .dock button {
+    width: 46px;
+    height: 46px;
+  }
+  .kbtn {
+    min-width: 12rem;
+    padding: 0.8rem 2.8rem;
+  }
+  .sched li {
+    grid-template-columns: 32px 5.8rem 1fr;
+  }
+  .gallery {
+    gap: 8px;
+  }
+} */
+
+@media (max-height: 480px) and (orientation: landscape) {
+  .s {
+    min-height: auto;
+    padding-top: 4.5rem;
+  }
+  #cover {
+    min-height: 480px;
+  }
+  .dock {
+    bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+  }
+  .dock a,
+  .dock button {
+    width: 44px;
+    height: 44px;
+  }
+  .tilt {
+    width: max(210px, min(60vw, 420px, calc((100vh - 110px) * 1.45)));
+  }
+}
+
+@media (min-width: 600px) {
+  :root {
+    --col: 600px;
+  }
+  body {
+    font-size: 16px;
+  }
+  html[lang="en"] body {
+    font-size: 19.5px;
+  }
+  .s {
+    padding: 7.5rem 2.6rem 4rem;
+  }
+  .h {
+    font-size: clamp(1.8rem, 5vw, 2rem);
+  }
+  .h.big {
+    font-size: clamp(2.3rem, 7vw, 2rem);
+  }
+  .hosts {
+    max-width: 440px;
+    font-size: 1.1rem;
+  }
+  .glass {
+    width: 100%;
+    height: 500px;
+  }
+  .glass {
+    width: 600px;
+    height: 500px;
+  }
+  .para,
+  .glass p {
+    font-size: 1.05rem;
+  }
+  .two {
+    max-width: 440px;
+  }
+  .bigdate {
+    max-width: 480px;
+  }
+  .bd-num {
+    font-size: 4.4rem;
+  }
+  .bd-side {
+    font-size: 1.05rem;
+  }
+  .glass {
+    padding: 2.6rem 2.2rem;
+  }
+  .mapbox iframe {
+    height: 380px;
+  }
+  .cd b {
+    font-size: 2rem;
+  }
+  .cd span {
+    font-size: 0.95rem;
+  }
+  .gallery {
+    gap: 16px;
+  }
+  .sched {
+    gap: 1.9rem;
+    width: 90%;
+  }
+  .sched li {
+    grid-template-columns: 40px 8rem 1fr;
+    column-gap: 0.9rem;
+  }
+  .sched .node {
+    width: 40px;
+    height: 40px;
+  }
+  .sched::before {
+    left: 19px;
+  }
+  .sched time {
+    font-size: 1.05rem;
+  }
+  .sched p {
+    font-size: 1.2rem;
+  }
+  .kbtn {
+    font: 700 1rem/1.6 var(--km);
+  }
+  .kq-grid {
+    display: flex;
+    max-width: 520px;
+    gap: 24px;
+  }
+  .kq-p {
+    font-size: 1.1rem;
+  }
+  .kq-card figcaption {
+    font-size: 1rem;
+  }
+  .kq-save {
+    font-size: 1.2rem;
+  }
+  #bar a,
+  #bar .lw {
+    width: 110px;
+  }
+  .hero-logo {
+    width: clamp(240px, 50vw, 340px);
+  }
+  #cover .lw {
+    width: clamp(220px, min(50vw, 36svh), 340px);
+  }
+  .music {
+    top: 18px;
+    right: 18px;
+    width: 44px;
+    height: 44px;
+  }
+  .dock a,
+  .dock button {
+    width: 58px;
+    height: 58px;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --col: 680px;
+  }
+  .s {
+    padding: 8rem 3.2rem 4.5rem;
+  }
+  .h {
+    font-size: 2rem;
+  }
+  .h.big {
+    font-size: 2rem;
+  }
+  .glass .h {
+    font-size: 2rem;
+  }
+  .mapbox iframe {
+    height: 420px;
+  }
+  .gallery button {
+    border-radius: 18px;
+  }
+  .tilt {
+    width: max(240px, min(72vw, 640px, calc((100vh - 190px) * 1.45)));
+  }
+  .etitle .m {
+    font-size: 1.6rem;
+  }
+  .etitle .e {
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --col: 100%;
+  }
+  body {
+    font-size: 17px;
+  }
+  html[lang="en"] body {
+    font-size: 21px;
+  }
+  .stage {
+    left: 0;
+    width: 100%;
+    transform: none;
+  }
+  .wrap {
+    box-shadow:
+      -30px 0 60px rgba(0, 0, 0, 0.28),
+      30px 0 60px rgba(0, 0, 0, 0.28);
+  }
+  #cal,
+  .khqr {
+    box-shadow: none;
+  }
+  .s {
+    padding: 8.5rem 8rem 5rem;
+  }
+  .h {
+    font-size: 2.8rem;
+  }
+  .h.big {
+    font-size: 3.4rem;
+  }
+  .hosts {
+    max-width: 520px;
+    font-size: 1.4rem;
+  }
+  .para,
+  .glass p {
+    font-size: 1.2rem;
+    max-width: 34em;
+  }
+  .glass p {
+    margin: 0 auto;
+  }
+  .bigdate {
+    max-width: 540px;
+  }
+  .bd-num {
+    font-size: 5rem;
+  }
+  .mapbox iframe {
+    height: 460px;
+  }
+  .letters {
+    gap: 6rem;
+  }
+  .sched {
+    width: 60%;
+  }
+  .sched li {
+    grid-template-columns: 44px 9rem 1fr;
+  }
+  .sched .node {
+    width: 44px;
+    height: 44px;
+  }
+  .sched::before {
+    left: 21px;
+  }
+  .kq-grid {
+    display: grid;
+    max-width: 720px;
+  }
+  .hero-logo {
+    width: 340px;
+  }
+  #cover .lw {
+    width: clamp(260px, 30vw, 380px);
+  }
+  #cover .dr b {
+    font-size: 24px;
+  }
+  .tilt {
+    width: max(260px, min(50vw, 680px, calc((100vh - 200px) * 1.45)));
+  }
+  .gallery button {
+    transition: transform 0.25s;
+  }
+  .gallery button:hover {
+    transform: scale(1.02);
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --col: 100%;
+  }
+  .s {
+    padding-left: 10rem;
+    padding-right: 10rem;
+  }
+}
+
+@media (hover: none) {
+  .dock a:hover,
+  .dock button:hover {
+    transform: none;
+  }
+  .kbtn:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery button,
+  .dock a,
+  .dock button,
+  .kbtn {
+    transition: none;
+  }
 }

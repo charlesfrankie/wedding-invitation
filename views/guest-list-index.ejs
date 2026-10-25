@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Guest list</title>
+    <link rel="stylesheet" href="/css/link-generator.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Guest list</h1>
+      <p class="sub">Personalised invitation links for saved guests.</p>
+      <p class="count">
+        <%= guests.length %> guest<%= guests.length === 1 ? "" : "s" %>
+      </p>
+
+      <% if (guests.length) { %>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Guest</th>
+            <th>Link</th>
+            <th>Send</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% guests.forEach((guest, index) => { %>
+          <tr>
+            <td class="n"><%= index + 1 %></td>
+            <td class="who"><%= guest.name %></td>
+            <td class="link"><%= guest.link %></td>
+            <td class="act">
+              <button type="button" data-copy="<%= guest.link %>">Copy link</button>
+              <a target="_blank" rel="noopener noreferrer" href="<%= guest.telegramUrl %>">Telegram</a>
+            </td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+      <% } else { %>
+      <p>No guests have been saved yet. Add guests using the <a href="/guest-link-generator">guest link generator</a>.</p>
+      <% } %>
+
+      <p><a href="/guest-link-generator">Back to guest link generator</a></p>
+    </main>
+
+    <script>
+      document.addEventListener("click", async (event) => {
+        const button = event.target.closest("button[data-copy]");
+        if (!button) return;
+
+        try {
+          await navigator.clipboard.writeText(button.dataset.copy);
+          const originalText = button.textContent;
+          button.textContent = "Copied";
+          setTimeout(() => {
+            button.textContent = originalText;
+          }, 1200);
+        } catch (error) {
+          console.error("Could not copy invitation link:", error);
+        }
+      });
+    </script>
+  </body>
+</html>

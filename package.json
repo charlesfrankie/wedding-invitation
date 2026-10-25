@@ -1,0 +1,30 @@
+{
+  "name": "wedding-invitation",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charlesfrankie/wedding-invitation.git"
+  },
+  "author": "Tim Hokty",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/charlesfrankie/wedding-invitation/issues"
+  },
+  "homepage": "https://github.com/charlesfrankie/wedding-invitation#readme",
+  "description": "",
+  "dependencies": {
+    "ejs": "^7.0.1",
+    "express": "^5.3.0",
+    "@prisma/client": "6.19.3",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "prisma": "6.19.3"
+  }
+}
