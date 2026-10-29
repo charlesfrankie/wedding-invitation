@@ -1,12 +1,11 @@
 const crypto = require("crypto");
 const prisma = require("../lib/prisma");
 
-function buildGuestEntries(guestRecords) {
-  const invitationBase =
-    process.env.INVITATION_URL || "https://hoksong-sievmey.netlify.app/";
+function buildGuestEntries(guestRecords, invitationBase) {
+  const baseUrl = invitationBase || process.env.INVITATION_URL;
 
   return guestRecords.map(({ token, name }) => {
-    const invitationUrl = new URL(invitationBase);
+    const invitationUrl = new URL(baseUrl);
 
     invitationUrl.pathname = `/guest/${encodeURIComponent(token)}`;
 
@@ -22,13 +21,13 @@ function buildGuestEntries(guestRecords) {
   });
 }
 
-async function getGuestList() {
+async function getGuestList(invitationBase) {
   const guests = await prisma.guest.findMany({
     orderBy: { createdAt: "asc" },
     select: { token: true, name: true, createdAt: true },
   });
 
-  return buildGuestEntries(guests);
+  return buildGuestEntries(guests, invitationBase);
 }
 
 async function findGuestByToken(token) {
@@ -36,6 +35,11 @@ async function findGuestByToken(token) {
     where: { token },
     select: { token: true, name: true, createdAt: true },
   });
+}
+
+async function deleteGuestByToken(token) {
+  const result = await prisma.guest.deleteMany({ where: { token } });
+  return result.count > 0;
 }
 
 async function addGuestNames(submittedNames) {
@@ -85,5 +89,6 @@ module.exports = {
   buildGuestEntries,
   getGuestList,
   findGuestByToken,
+  deleteGuestByToken,
   addGuestNames,
 };

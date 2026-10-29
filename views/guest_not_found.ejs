@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Invitation Not Found</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: Georgia, "Times New Roman", serif;
+        background: #121b0e;
+        color: #f1e8d6;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        display: grid;
+        min-height: 100vh;
+        margin: 0;
+        padding: 24px;
+        place-items: center;
+        text-align: center;
+      }
+      main {
+        width: min(100%, 480px);
+        padding: 48px 32px;
+        border: 1px solid #a8744a;
+        border-radius: 16px;
+        background: #1d2816;
+        box-shadow: 0 16px 48px rgb(0 0 0 / 30%);
+      }
+      h1 {
+        margin: 0 0 16px;
+        color: #e5c36b;
+        font-size: clamp(2rem, 8vw, 3rem);
+      }
+      p {
+        margin: 0;
+        line-height: 1.7;
+      }
+      @media (max-width: 480px) {
+        h1 {
+          font-size: clamp(1.4rem, 8vw, 1.4rem);
+        }
+        p {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Invitation Not Found</h1>
+      <p>
+        This invitation link is invalid or no longer available. Please contact
+        the hosts for a new link.
+      </p>
+    </main>
+  </body>
+</html>

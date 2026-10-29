@@ -5,6 +5,7 @@ const path = require("path");
 const {
   getGuestList,
   findGuestByToken,
+  deleteGuestByToken,
   addGuestNames,
 } = require("./services/requestService");
 
@@ -22,17 +23,21 @@ app.get("/", (req, res) => {
   res.render("index", { guest: null });
 });
 
+app.get("/guest_not_found", (req, res) => {
+  res.status(404).render("guest_not_found");
+});
+
 app.get("/guest/:token", async (req, res) => {
   try {
     const { token } = req.params;
 
     if (!token || token.trim().length === 0) {
-      return res.status(400).send("Invalid invitation token");
+      return res.redirect("/guest_not_found");
     }
 
     const guest = await findGuestByToken(token);
     if (!guest) {
-      return res.status(404).send("Invitation not found");
+      return res.redirect("/guest_not_found");
     }
 
     res.render("index", { guest });
@@ -50,12 +55,55 @@ app.get("/guest-link-generator", (req, res) => {
 
 app.get("/guest-list", async (req, res, next) => {
   try {
-    const guests = await getGuestList();
+    const invitationBase = `${req.protocol}://${req.get("host")}`;
+    const guests = await getGuestList(invitationBase);
 
     res.render("guest-list-index", { guests });
   } catch (error) {
     next(error);
   }
+});
+
+app.get("/guest-list/export", async (req, res, next) => {
+  try {
+    const invitationBase = `${req.protocol}://${req.get("host")}`;
+    const guests = await getGuestList(invitationBase);
+    const escapeCsv = (value) => {
+      let text = String(value);
+      if (/^[\u0000-\u0020]*[=+\-@]/.test(text)) {
+        text = `'${text}`;
+      }
+
+      return `"${text.replace(/"/g, '""')}"`;
+    };
+    const rows = [
+      ["Guest Name", "Invitation Link"],
+      ...guests.map(({ name, link }) => [name, link]),
+    ];
+    const csv = `\uFEFF${rows.map((row) => row.map(escapeCsv).join(",")).join("\r\n")}`;
+
+    res
+      .type("text/csv")
+      .attachment("guest-list.csv")
+      .send(csv);
+  } catch (error) {
+    next(error);
+  }
+});
+
+app.post("/guest/:token/delete", async (req, res) => {
+  const { token } = req.params;
+
+  if (!token || token.trim().length === 0) {
+    return res.status(400).send("Invalid guest token");
+  }
+
+  const deleted = await deleteGuestByToken(token);
+  if (!deleted) {
+    return res.status(404).send("Guest not found");
+  }
+
+  return res.redirect(303, "/guest-list");
 });
 
 app.post("/generate-links", async (req, res) => {

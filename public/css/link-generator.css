@@ -70,6 +70,18 @@ button {
   padding: 8px 16px;
   border-radius: 8px;
 }
+a.export {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  background: var(--gold);
+  color: #fff;
+  text-decoration: none;
+}
+a.export:hover {
+  filter: brightness(1.08);
+}
 button.ghost {
   background: transparent;
   color: var(--gold);
@@ -105,6 +117,16 @@ td.link {
 }
 td.act {
   white-space: nowrap;
+}
+td.action {
+  white-space: nowrap;
+}
+td.action form {
+  margin: 0;
+}
+button.delete {
+  border-color: #a33b32;
+  background: #a33b32;
 }
 td.act button,
 td.act a {
@@ -187,6 +209,13 @@ td.act a {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 8px;
+  }
+  td.action {
+    margin-top: 8px;
+  }
+  td.action form,
+  td.action button {
+    width: 100%;
   }
   td.act button,
   td.act a {
