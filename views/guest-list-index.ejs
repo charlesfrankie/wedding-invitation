@@ -13,7 +13,9 @@
       <p class="count">
         <%= guests.length %> guest<%= guests.length === 1 ? "" : "s" %>
       </p>
+      <% if (guests.length) { %>
       <p><a class="export" href="/guest-list/export">Export to Excel (CSV)</a></p>
+      <% } %>
 
       <% if (guests.length) { %>
       <table>

@@ -20,7 +20,8 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {
-  res.render("index", { guest: null });
+  const siteOrigin = `${req.protocol}://${req.get("host")}`;
+  res.render("index", { guest: null, siteOrigin });
 });
 
 app.get("/guest_not_found", (req, res) => {
@@ -40,7 +41,8 @@ app.get("/guest/:token", async (req, res) => {
       return res.redirect("/guest_not_found");
     }
 
-    res.render("index", { guest });
+    const siteOrigin = `${req.protocol}://${req.get("host")}`;
+    res.render("index", { guest, siteOrigin });
   } catch (error) {
     console.error("Failed to load guest invitation:", error);
     return res.status(500).send("Internal Server Error");
@@ -68,6 +70,10 @@ app.get("/guest-list/export", async (req, res, next) => {
   try {
     const invitationBase = `${req.protocol}://${req.get("host")}`;
     const guests = await getGuestList(invitationBase);
+    if (guests.length === 0) {
+      return res.redirect(303, "/guest-list");
+    }
+
     const escapeCsv = (value) => {
       let text = String(value);
       if (/^[\u0000-\u0020]*[=+\-@]/.test(text)) {

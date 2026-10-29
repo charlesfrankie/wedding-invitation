@@ -7,6 +7,34 @@
     />
     <title>សិរីមង្គលអាពាហ៍ពិពាហ៍ · Wedding Invitation</title>
 
+    <!-- Facebook Messenger and other Open Graph previews -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Our Wedding Invitation" />
+    <meta
+      property="og:description"
+      content="Join us as we celebrate our special day."
+    />
+    <meta
+      property="og:image"
+      content="<%= siteOrigin %>/images/cover.webp"
+    />
+    <meta
+      property="og:url"
+      content="<%= siteOrigin %><%= guest ? `/guest/${encodeURIComponent(guest.token)}` : '/' %>"
+    />
+
+    <!-- Telegram / browser compatibility -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Our Wedding Invitation" />
+    <meta
+      name="twitter:description"
+      content="Join us as we celebrate our special day."
+    />
+    <meta
+      name="twitter:image"
+      content="<%= siteOrigin %>/images/cover.webp"
+    />
+
     <!-- favicon -->
     <link
       rel="icon"
