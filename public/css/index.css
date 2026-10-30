@@ -388,16 +388,26 @@ html[lang="en"] .date2 {
   grid-column: span 2;
   aspect-ratio: 3/4;
 }
-.gallery button:nth-child(1) {
+.gallery button:nth-child(1),
+.gallery button:nth-child(7),
+.gallery button:nth-child(13) {
   grid-column: span 6;
-  aspect-ratio: 3/2;
+  aspect-ratio: 4/2;
 }
 .gallery button:nth-child(2),
 .gallery button:nth-child(3) {
   grid-column: span 3;
   aspect-ratio: 4/3;
 }
-.gallery button:nth-child(n + 7) {
+.gallery button:nth-child(11),
+.gallery button:nth-child(12) {
+  grid-column: span 3;
+  aspect-ratio: 2/3;
+}
+
+/* .gallery button:nth-child(8), */
+/* .gallery button:nth-child(9) */
+.gallery button:nth-child(n + 20) {
   grid-column: span 3;
   aspect-ratio: 1;
 }
@@ -702,7 +712,7 @@ body.locked {
 .ebg {
   position: absolute;
   inset: 0;
-  background: #000 url("/images/cover.webp") center 38% / cover;
+  background: #000 url("/images/CX7_6678_COVER.jpg") center 38% / cover;
   filter: blur(18px) brightness(0.38) saturate(0.9);
   transform: scale(1.12);
 }
@@ -991,7 +1001,7 @@ body.locked {
 #cover .ph {
   position: absolute;
   inset: 0;
-  background: #000 url("/images/cover.webp") 50% 36% / cover;
+  background: #000 url("/images/CX7_6678_COVER.jpg") 50% 36% / cover;
 }
 #cover .sh {
   position: absolute;
@@ -1505,43 +1515,6 @@ iframe {
   max-width: calc(var(--col) - 24px);
   max-width: min(calc(100vw - 24px), 440px);
 }
-
-/* @media (max-width: 359px) {
-  body {
-    font-size: 14px;
-  }
-  .hosts {
-    gap: 0.8rem 1rem;
-  }
-  .cd {
-    gap: 0.4rem;
-  }
-  .cd b {
-    font-size: 1.55rem;
-  }
-  .cd span {
-    font-size: 0.72rem;
-  }
-  .dock {
-    gap: 0.4rem;
-    padding: 0.5rem;
-  }
-  .dock a,
-  .dock button {
-    width: 46px;
-    height: 46px;
-  }
-  .kbtn {
-    min-width: 12rem;
-    padding: 0.8rem 2.8rem;
-  }
-  .sched li {
-    grid-template-columns: 32px 5.8rem 1fr;
-  }
-  .gallery {
-    gap: 8px;
-  }
-} */
 
 @media (max-height: 480px) and (orientation: landscape) {
   .s {

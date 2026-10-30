@@ -29,12 +29,29 @@ const CONFIG = {
   photos: {
     background: "", // full-screen photo behind everything (gets the golden sepia tint automatically)
     gallery: [
-      "/images/photo-1.jpeg",
-      "/images/photo-2.jpeg",
-      "/images/photo-3.jpeg",
-      "/images/photo-4.jpeg",
-      "/images/photo-5.jpeg",
-      "/images/photo-6.jpeg",
+      "CX7_6688",
+
+      "CX7_6727",
+      "DSC_8098",
+
+      "CX7_6754",
+      "CX7_6678_COVER",
+      "CX7_6802_02",
+
+      "CX7_6457",
+
+      "CX7_6417",
+      "CX7_6354",
+      "CX7_6465",
+
+      "DSC_8003",
+      "DSC_7964",
+
+      "CX7_6330",
+
+      "DSC_7918",
+      "DSC_8043",
+      "DSC_7932",
     ], // 1st is wide, 2nd-3rd medium, 4th-6th small; add more if you like
     khqr: [
       "/images/tim-hoksong-ly-sievmey-khqr.jpg",
@@ -309,21 +326,77 @@ $("khqrGrid")
   });
 
 /* Gallery */
+const WIDTHS = [800, 1280, 1920, 2560];
+const srcFor = (name, w) => `gallery/${w}/${name}.jpg`;
+const srcsetFor = (name) =>
+  WIDTHS.map((w) => `${srcFor(name, w)} ${w}w`).join(", ");
+
+// Same idea as your setImg, but with responsive sizes
+const setResponsiveImg = (el, name, fb) => {
+  if (!name) {
+    el.src = fb;
+    return;
+  }
+  el.onerror = () => {
+    el.onerror = null;
+    el.removeAttribute("srcset"); // otherwise the browser may keep retrying srcset
+    el.src = fb;
+  };
+  // el.sizes = "(max-width: 600px) 50vw, (max-width: 1024px) 33vw, 25vw";
+  el.srcset = srcsetFor(name);
+  el.src = srcFor(name, 1280);
+};
+
 const gal = $("gallery");
+const lb = $("lb");
+const lbImg = lb.querySelector("img");
+
 gal.innerHTML = CONFIG.photos.gallery
-  .map(() => `<button type="button"><img alt="" loading="lazy"></button>`)
+  .map(
+    (name) => `
+    <button type="button" data-name="${name}">
+      <img alt="" loading="lazy" decoding="async">
+    </button>`,
+  )
   .join("");
-gal
-  .querySelectorAll("img")
-  .forEach((img, i) => setImg(img, CONFIG.photos.gallery[i], ph(i)));
-gal.querySelectorAll("button").forEach(
-  (b) =>
-    (b.onclick = () => {
-      $("lb").querySelector("img").src = b.firstChild.src;
-      $("lb").showModal();
-    }),
-);
-$("lb").addEventListener("click", () => $("lb").close());
+
+gal.querySelectorAll("img").forEach((img, i) => {
+  setResponsiveImg(img, CONFIG.photos.gallery[i], ph(i));
+});
+
+gal.querySelectorAll("button").forEach((b) => {
+  b.onclick = () => {
+    const name = b.dataset.name;
+    const img = b.querySelector("img");
+    lbImg.removeAttribute("srcset");
+    lbImg.onerror = () => {
+      lbImg.onerror = null;
+      lbImg.src = img.currentSrc || img.src; // fall back to the grid image
+    };
+    lbImg.sizes = "100vw";
+    lbImg.src = srcFor(name, 1280);
+    lbImg.srcset = srcsetFor(name);
+    lb.showModal();
+  };
+});
+
+lb.addEventListener("click", () => lb.close());
+
+// const gal = $("gallery");
+// gal.innerHTML = CONFIG.photos.gallery
+//   .map(() => `<button type="button"><img alt="" loading="lazy"></button>`)
+//   .join("");
+// gal
+//   .querySelectorAll("img")
+//   .forEach((img, i) => setImg(img, CONFIG.photos.gallery[i], ph(i)));
+// gal.querySelectorAll("button").forEach(
+//   (b) =>
+//     (b.onclick = () => {
+//       $("lb").querySelector("img").src = b.firstChild.src;
+//       $("lb").showModal();
+//     }),
+// );
+// $("lb").addEventListener("click", () => $("lb").close());
 
 /* Music (optional) - starts when the envelope is opened */
 let audio = null;
