@@ -391,26 +391,27 @@ html[lang="en"] .date2 {
 }
 .gallery button:nth-child(1),
 .gallery button:nth-child(7),
+.gallery button:nth-child(11),
 .gallery button:nth-child(13) {
   grid-column: span 6;
-  aspect-ratio: 4/2;
+  aspect-ratio: 3.5/2;
 }
 .gallery button:nth-child(2),
 .gallery button:nth-child(3) {
   grid-column: span 3;
   aspect-ratio: 4/3;
 }
-.gallery button:nth-child(11),
-.gallery button:nth-child(12) {
+.gallery button:nth-child(12),
+.gallery button:nth-child(13) {
   grid-column: span 3;
   aspect-ratio: 2/3;
 }
 
 /* .gallery button:nth-child(8), */
 /* .gallery button:nth-child(9) */
-.gallery button:nth-child(n + 20) {
-  grid-column: span 3;
-  aspect-ratio: 1;
+.gallery button:nth-child(n + 17) {
+  grid-column: span 6;
+  aspect-ratio: 3/2;
 }
 .gallery img {
   width: 100%;

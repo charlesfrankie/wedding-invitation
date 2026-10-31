@@ -32,7 +32,7 @@ const CONFIG = {
       "CX7_6688",
 
       "CX7_6727",
-      "DSC_8098",
+      "CX7_6727",
 
       "CX7_6754",
       "CX7_6678_COVER",
@@ -44,15 +44,17 @@ const CONFIG = {
       "CX7_6354",
       "CX7_6465",
 
-      "DSC_8003",
-      "DSC_7964",
+      "DSC_8098",
 
-      "CX7_6330",
+      "DSC_8003",
+      "DSC_8043",
 
       "DSC_7918",
-      "DSC_8043",
+      "DSC_7964",
       "DSC_7932",
-    ], // 1st is wide, 2nd-3rd medium, 4th-6th small; add more if you like
+
+      "CX7_6330",
+    ],
     khqr: [
       "/images/tim-hoksong-ly-sievmey-khqr.jpg",
       "/images/tim-hoksong-ly-sievmey-khqr-2.jpg",
