@@ -60,7 +60,7 @@ const CONFIG = {
       "/images/tim-hoksong-ly-sievmey-khqr-2.jpg",
     ], // one path or a list; 2 per row
   },
-  music: "", // e.g. "music/song.mp3". Leave "" to hide the speaker button
+  music: "/music/canon-in-d.mp3",
 
   /* [time km, time en, text km, text en, icon]   icons: flower, fist, sun, ring, stand, glasses (+ people, plate, heart, rings, camera, gift, lotus, scissors, candle) */
   schedule: [
