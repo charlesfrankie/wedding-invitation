@@ -1566,10 +1566,6 @@ iframe {
     width: 100%;
     height: 500px;
   }
-  .glass {
-    width: 600px;
-    height: 500px;
-  }
   .para,
   .glass p {
     font-size: 1.05rem;
