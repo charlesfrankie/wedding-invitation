@@ -329,7 +329,7 @@ $("khqrGrid")
 
 /* Gallery */
 const WIDTHS = [800, 1280, 1920, 2560];
-const srcFor = (name, w) => `gallery/${w}/${name}.jpg`;
+const srcFor = (name, w) => `/gallery/${w}/${name}.jpg`;
 const srcsetFor = (name) =>
   WIDTHS.map((w) => `${srcFor(name, w)} ${w}w`).join(", ");
 

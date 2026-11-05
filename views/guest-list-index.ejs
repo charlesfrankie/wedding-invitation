@@ -37,6 +37,11 @@
             <td class="act">
               <button type="button" data-copy="<%= guest.link %>">Copy link</button>
               <a target="_blank" rel="noopener noreferrer" href="<%= guest.telegramUrl %>">Telegram</a>
+              <a
+                class="messenger"
+                href="fb-messenger://share/?link=<%= encodeURIComponent(guest.link) %>"
+                data-messenger-link="<%= guest.link %>"
+              >Messenger</a>
             </td>
             <td class="action act">
               <form action="/guest/<%= encodeURIComponent(guest.token) %>/delete" method="POST" data-confirm-delete>
@@ -78,6 +83,26 @@
         ) {
           event.preventDefault();
         }
+      });
+
+      document.addEventListener("click", async (event) => {
+        const a = event.target.closest("a.messenger");
+        if (!a) return;
+
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+        if (isMobile) return; // let the fb-messenger:// link open the app
+
+        // Desktop fallback: copy the link, then open Messenger on the web
+        event.preventDefault();
+        try {
+          await navigator.clipboard.writeText(a.dataset.messengerLink);
+          const originalText = a.textContent;
+          a.textContent = "Link copied";
+          setTimeout(() => { a.textContent = originalText; }, 1200);
+        } catch (error) {
+          console.error("Could not copy invitation link:", error);
+        }
+        window.open("https://www.messenger.com/", "_blank", "noopener,noreferrer");
       });
     </script>
   </body>
