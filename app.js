@@ -9,6 +9,7 @@ const {
   addGuestNames,
   buildOg,
 } = require("./services/requestService");
+const { basicAuth } = require("./services/middleware");
 
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;
@@ -55,13 +56,13 @@ app.get("/guest/:token", async (req, res) => {
   }
 });
 
-app.get("/guest-link-generator", (req, res) => {
+app.get("/guest-link-generator", basicAuth, (req, res) => {
   const data = {};
 
   res.render("link-generator", data);
 });
 
-app.get("/guest-list", async (req, res, next) => {
+app.get("/guest-list", basicAuth, async (req, res, next) => {
   try {
     const invitationBase = `${req.protocol}://${req.get("host")}`;
     const guests = await getGuestList(invitationBase);

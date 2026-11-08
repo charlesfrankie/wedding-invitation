@@ -92,7 +92,6 @@
 
         const message = btn.dataset.message || "";
         const link = btn.dataset.link;
-        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
         const originalText = btn.textContent;
 
         // 1. Copy the message
@@ -102,11 +101,6 @@
           setTimeout(() => (btn.textContent = originalText), 2000);
         } catch (error) {
           console.error("Could not copy invitation link:", error);
-        }
-
-        // 2. Redirect to Messenger
-        if (isMobile) {
-          window.location.href = `fb-messenger://share/?link=${encodeURIComponent(link)}`;
         }
       });
     </script>
