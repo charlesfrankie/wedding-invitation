@@ -434,5 +434,22 @@
       window.GUEST = <%- JSON.stringify((typeof guest !== "undefined" && guest && guest.name) || "").replace(/</g, "\\u003c") %>;
     </script>
     <script src="/js/script.js"></script>
+    <script>
+      // Blocks the right-click menu and the usual shortcuts
+      document.addEventListener("contextmenu", (e) => e.preventDefault());
+
+      document.addEventListener("keydown", (e) => {
+        const key = e.key.toLowerCase();
+        if (
+          e.key === "F12" ||
+          (e.ctrlKey && e.shiftKey && ["i", "j", "c"].includes(key)) || // Win/Linux
+          (e.metaKey && e.altKey && ["i", "j", "c"].includes(key)) || // Mac
+          (e.ctrlKey && key === "u") || // view source
+          (e.metaKey && key === "u")
+        ) {
+          e.preventDefault();
+        }
+      });
+    </script>
   </body>
 </html>
