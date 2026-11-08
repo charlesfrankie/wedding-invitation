@@ -16,6 +16,7 @@ function buildGuestEntries(guestRecords, invitationBase) {
       token,
       name,
       link,
+      message,
       telegramUrl: `https://t.me/share/url?url=${encodeURIComponent(message)}`,
     };
   });

@@ -37,11 +37,12 @@
             <td class="act">
               <button type="button" data-copy="<%= guest.link %>">Copy link</button>
               <a target="_blank" rel="noopener noreferrer" href="<%= guest.telegramUrl %>">Telegram</a>
-              <a
+              <button
+                type="button"
                 class="messenger"
-                href="fb-messenger://share/?link=<%= encodeURIComponent(guest.link) %>"
-                data-messenger-link="<%= guest.link %>"
-              >Messenger</a>
+                data-message="<%= guest.message %>"
+                data-link="<%= guest.link %>"
+              >Messenger</button>
             </td>
             <td class="action act">
               <form action="/guest/<%= encodeURIComponent(guest.token) %>/delete" method="POST" data-confirm-delete>
@@ -86,23 +87,28 @@
       });
 
       document.addEventListener("click", async (event) => {
-        const a = event.target.closest("a.messenger");
-        if (!a) return;
+        const btn = event.target.closest("button.messenger");
+        if (!btn) return;
 
+        const message = btn.dataset.message || "";
+        const link = btn.dataset.link;
         const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-        if (isMobile) return; // let the fb-messenger:// link open the app
+        const originalText = btn.textContent;
 
-        // Desktop fallback: copy the link, then open Messenger on the web
-        event.preventDefault();
+        // 1. Copy the message
         try {
-          await navigator.clipboard.writeText(a.dataset.messengerLink);
-          const originalText = a.textContent;
-          a.textContent = "Link copied";
-          setTimeout(() => { a.textContent = originalText; }, 1200);
+          await navigator.clipboard.writeText(message);
+          console.log("Copied", originalText)
+          btn.textContent = copied ? "Message copied" : "Copy failed";
+          setTimeout(() => (btn.textContent = originalText), 2000);
         } catch (error) {
           console.error("Could not copy invitation link:", error);
         }
-        window.open("https://www.messenger.com/", "_blank", "noopener,noreferrer");
+
+        // 2. Redirect to Messenger on mobile only
+        if (isMobile) {
+          window.location.href = `fb-messenger://share/?link=${encodeURIComponent(link)}`;
+        }
       });
     </script>
   </body>
