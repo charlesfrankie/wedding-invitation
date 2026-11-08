@@ -99,7 +99,7 @@
         try {
           await navigator.clipboard.writeText(message);
           console.log("Copied", originalText)
-          btn.textContent = copied ? "Message copied" : "Copy failed";
+          btn.textContent = "Message copied";
           setTimeout(() => (btn.textContent = originalText), 2000);
         } catch (error) {
           console.error("Could not copy invitation link:", error);
