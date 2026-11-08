@@ -7,6 +7,7 @@ const {
   findGuestByToken,
   deleteGuestByToken,
   addGuestNames,
+  buildOg,
 } = require("./services/requestService");
 
 const app = express();
@@ -22,7 +23,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {
   const siteOrigin = `${req.protocol}://${req.get("host")}`;
-  res.render("index", { guest: null, siteOrigin });
+  res.render("index", { guest: null, siteOrigin, og: buildOg(null) });
 });
 
 app.get("/guest_not_found", (req, res) => {
@@ -43,7 +44,11 @@ app.get("/guest/:token", async (req, res) => {
     }
 
     const siteOrigin = `${req.protocol}://${req.get("host")}`;
-    res.render("index", { guest, siteOrigin });
+    res.render("index", {
+      guest,
+      siteOrigin,
+      og: buildOg(guest),
+    });
   } catch (error) {
     console.error("Failed to load guest invitation:", error);
     return res.status(500).send("Internal Server Error");
@@ -89,10 +94,7 @@ app.get("/guest-list/export", async (req, res, next) => {
     ];
     const csv = `\uFEFF${rows.map((row) => row.map(escapeCsv).join(",")).join("\r\n")}`;
 
-    res
-      .type("text/csv")
-      .attachment("guest-list.csv")
-      .send(csv);
+    res.type("text/csv").attachment("guest-list.csv").send(csv);
   } catch (error) {
     next(error);
   }

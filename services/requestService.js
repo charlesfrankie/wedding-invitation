@@ -86,10 +86,32 @@ async function addGuestNames(submittedNames) {
   return prisma.guest.findMany({ orderBy: { createdAt: "asc" } });
 }
 
+const SITE_URL = (
+  process.env.INVITATION_URL || "https://hoksong-sievmey.vercel.app"
+).replace(/\/$/, "");
+
+const OG_DEFAULTS = {
+  title: "Hoksong & Sievmey · Wedding Invitation",
+  description: "We warmly invite you to celebrate our wedding.",
+  url: `${SITE_URL}/`,
+};
+
+function buildOg(guest) {
+  if (!guest) return OG_DEFAULTS;
+
+  return {
+    ...OG_DEFAULTS,
+    title: `${guest.name}, you're invited · Hoksong & Sievmey Wedding`,
+    description: `Dear ${guest.name}, we warmly invite you to celebrate our wedding.`,
+    url: `${SITE_URL}/guest/${encodeURIComponent(guest.token)}`,
+  };
+}
+
 module.exports = {
   buildGuestEntries,
   getGuestList,
   findGuestByToken,
   deleteGuestByToken,
   addGuestNames,
+  buildOg,
 };
