@@ -24,7 +24,7 @@ function buildGuestEntries(guestRecords, invitationBase) {
 
 async function getGuestList(invitationBase) {
   const guests = await prisma.guest.findMany({
-    orderBy: { createdAt: "asc" },
+    orderBy: { createdAt: "desc" },
     select: { token: true, name: true, createdAt: true },
   });
 
